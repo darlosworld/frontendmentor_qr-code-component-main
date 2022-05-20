@@ -1,0 +1,53 @@
+@mixin mq-sp {
+	@media only screen and (max-width: 767px) {
+		@content;
+	}
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Overpass:wght@400;700&display=swap');
+$white: hsl(0, 0%, 100%);
+$lightGray: hsl(212, 45%, 89%);
+$grayishBlue: hsl(220, 15%, 55%);
+$darkBlue: hsl(218, 44%, 22%);
+$borderRadius: 50px;
+
+body{
+    background-color: $lightGray;
+    font-size: 15px;
+    font-family: 'Overpass', sans-serif;
+}
+
+.container{
+    margin: 100px auto;
+    width: 400px;
+    background-color: $white;
+    padding:20px;
+    border-radius: $borderRadius;
+    @include mq-sp{
+        width:75%;
+        margin:20px auto;
+    }
+    .qrDiv{
+        img{
+            width: 100%;
+            border-radius: $borderRadius;
+        }
+    }
+    .textDiv{
+        text-align: center;
+        color: $grayishBlue;
+        padding:20px;
+        font-size: 1.3rem;
+        @include mq-sp{
+            font-size: 1rem;
+        }
+        h1{
+            font-weight: 700;
+            color: $darkBlue;
+            font-size: 1.8rem;
+            @include mq-sp{
+                font-size: 1.3rem;
+            }
+        }
+    }
+}
